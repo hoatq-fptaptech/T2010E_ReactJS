@@ -1,14 +1,37 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 export default function Nav(){
+    var menu = [
+        {
+            url:"/",
+            title:"Home"
+        },
+        {
+            url:"/login",
+            title:"Login"
+        },
+        {
+            url:"/register",
+            title:"Register"
+        },
+        {
+            url:"/about-us",
+            title:"About us"
+        }
+    ];
     return (
         <nav className="section col-md-12 nav">
             <div className="container">
                 <ul className="menu">
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/login">Login</Link></li>
-                    <li><Link to="/register">Register</Link></li>
-                    <li><Link to="/about-us">About us</Link></li>
+                    {
+                       // code js
+                        menu.map((e,i)=>{
+                            return (
+                                <li key={i}><Link to={e.url}>{e.title}</Link></li>
+                            )
+                        })
+                    }
+
                 </ul>
             </div>
         </nav>
